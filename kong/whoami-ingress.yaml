@@ -1,0 +1,16 @@
+#ingress
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: nginx-ingress
+  annotations:
+    kubernetes.io/ingress.class: "kong"
+spec:
+  rules:
+  - host: lei32323.com
+    http:
+      paths:
+      - path: /v1
+        backend:
+          serviceName: whoami-service
+          servicePort: 8000
